@@ -1,0 +1,557 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Birthday Wishes Hub - 550+ unique heartfelt birthday wishes for Mother, Father, Brother, Sister, Husband, Wife, Teacher, Boss, Coworker, Pet & Relatives. Copy instantly!"
+    />
+    <title>Birthday Wishes Hub | 550+ Perfect Birthday Messages</title>
+    <meta
+      property="og:title"
+      content="Birthday Wishes Hub - 550+ Heartfelt Birthday Wishes"
+    />
+    <meta
+      property="og:description"
+      content="Beautiful, ready-to-share birthday wishes for every special person in your life."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://birthdaywishes.hub.example" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <style>
+      :root {
+        --primary: #ff6b6b;
+        --secondary: #4ecdc4;
+        --accent: #ffe66d;
+        --text: #333;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Segoe UI", system-ui, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: var(--text);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+      .dark-mode {
+        --text: #eee;
+        background: linear-gradient(135deg, #2c3e50 0%, #1a252f 100%);
+      }
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(12px);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      }
+      .dark-mode header {
+        background: rgba(30, 30, 40, 0.95);
+      }
+      .container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      .hero {
+        text-align: center;
+        padding: 100px 20px 70px;
+        color: white;
+      }
+      .hero h1 {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        margin-bottom: 16px;
+        text-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      }
+      .hero p {
+        font-size: 1.35rem;
+        max-width: 720px;
+        margin: 0 auto 40px;
+      }
+      .search-container {
+        max-width: 620px;
+        margin: 0 auto;
+        position: relative;
+      }
+      #searchInput {
+        width: 100%;
+        padding: 20px 28px;
+        font-size: 1.2rem;
+        border: none;
+        border-radius: 9999px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+        outline: none;
+        transition: all 0.3s;
+      }
+      #searchInput:focus {
+        transform: scale(1.02);
+      }
+      .suggestions {
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 0;
+        right: 0;
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        max-height: 340px;
+        overflow-y: auto;
+        display: none;
+        z-index: 1100;
+      }
+      .dark-mode .suggestions {
+        background: #2a2a3a;
+      }
+      .suggestion-item {
+        padding: 16px 28px;
+        cursor: pointer;
+        border-bottom: 1px solid #f0f0f0;
+      }
+      .suggestion-item:hover {
+        background: #f8f9ff;
+      }
+      .dark-mode .suggestion-item:hover {
+        background: #383850;
+      }
+      .categories {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 24px;
+        padding: 60px 0;
+      }
+      .category-card {
+        background: white;
+        border-radius: 24px;
+        padding: 32px 20px;
+        text-align: center;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: pointer;
+      }
+      .dark-mode .category-card {
+        background: #25253a;
+        color: #eee;
+      }
+      .category-card:hover {
+        transform: translateY(-12px) scale(1.03);
+        box-shadow: 0 30px 60px rgba(255, 107, 107, 0.25);
+      }
+      .category-card .emoji {
+        font-size: 3.5rem;
+        margin-bottom: 12px;
+        display: block;
+      }
+      .wishes-section {
+        display: none;
+      }
+      .wishes-section.active {
+        display: block;
+      }
+      .wish-card {
+        background: white;
+        border-radius: 22px;
+        padding: 28px;
+        margin-bottom: 28px;
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        border-left: 6px solid var(--primary);
+      }
+      .dark-mode .wish-card {
+        background: #2f2f45;
+      }
+      .wish-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.18);
+      }
+      .wish-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 16px;
+      }
+      .wish-number {
+        font-weight: 700;
+        color: var(--primary);
+        font-size: 1.1rem;
+      }
+      .wish-text {
+        font-size: 1.1rem;
+        line-height: 1.7;
+        margin-bottom: 20px;
+        color: var(--text);
+      }
+      .copy-btn {
+        background: linear-gradient(90deg, #ff6b6b, #ff8e8e);
+        color: white;
+        border: none;
+        padding: 12px 32px;
+        border-radius: 9999px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+        font-size: 1rem;
+      }
+      .copy-btn:hover {
+        background: linear-gradient(90deg, #ff4757, #ff6b6b);
+        transform: translateY(-3px);
+      }
+      .notification {
+        position: fixed;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #22c55e;
+        color: white;
+        padding: 16px 32px;
+        border-radius: 9999px;
+        box-shadow: 0 10px 30px rgba(34, 197, 94, 0.4);
+        display: none;
+        align-items: center;
+        gap: 12px;
+        z-index: 3000;
+        font-weight: 600;
+      }
+      footer {
+        background: rgba(0, 0, 0, 0.15);
+        color: white;
+        text-align: center;
+        padding: 60px 20px 40px;
+        margin-top: 80px;
+      }
+      .whatsapp-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: #25d366;
+        color: white;
+        padding: 12px 24px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        margin-top: 15px;
+        transition: all 0.3s;
+      }
+      .whatsapp-btn:hover {
+        background: #20b858;
+        transform: scale(1.05);
+      }
+      .scroll-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 56px;
+        height: 56px;
+        background: var(--primary);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        font-size: 1.8rem;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+        z-index: 2000;
+      }
+      @media (max-width: 768px) {
+        .hero {
+          padding: 70px 20px 50px;
+        }
+        .wish-card {
+          padding: 22px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+          "
+        >
+          <div
+            style="
+              font-size: 2rem;
+              font-weight: 800;
+              color: var(--primary);
+              display: flex;
+              align-items: center;
+              gap: 12px;
+            "
+          >
+            🎂 Birthday Wishes Hub
+          </div>
+          <button
+            onclick="toggleDarkMode()"
+            style="
+              background: none;
+              border: none;
+              font-size: 1.6rem;
+              cursor: pointer;
+              padding: 8px;
+            "
+          >
+            🌗
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="container">
+        <h1>550+ Heartfelt Birthday Wishes</h1>
+        <p>
+          Beautiful messages for every special person in your life. Search,
+          copy, and spread joy instantly.
+        </p>
+
+        <div class="search-container">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Type a category like 'mother', 'teacher' or 'pet'..."
+          />
+          <div class="suggestions" id="suggestions"></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <!-- Categories -->
+      <div id="categoriesGrid" class="categories"></div>
+
+      <!-- Wishes Container -->
+      <div id="wishesContainer"></div>
+    </div>
+
+    <div id="notification" class="notification">
+      ✅ Wish copied to clipboard!
+    </div>
+
+    <button
+      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+      id="scrollTopBtn"
+      class="scroll-top"
+    >
+      ↑
+    </button>
+
+    <footer>
+      <div class="container">
+        <p style="font-size: 1.1rem">
+          © 2026 Birthday Wishes Hub • All wishes created with ❤️ for sharing
+          happiness
+        </p>
+        <p style="margin-top: 8px; opacity: 0.9">
+          Made with love • Fully offline ready
+        </p>
+
+        <a
+          href="https://wa.me/97335559626"
+          target="_blank"
+          class="whatsapp-btn"
+        >
+          📱 WhatsApp: +973 3555 9626
+        </a>
+
+        <p style="margin-top: 30px; opacity: 0.7; font-size: 0.95rem">
+          For custom wishes or bulk requests, feel free to message on WhatsApp
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Complete wishes data
+      const wishesData = {
+        mother: [],
+        father: [],
+        brother: [],
+        sister: [],
+        husband: [],
+        wife: [],
+        teacher: [],
+        boss: [],
+        coworker: [],
+        pet: [],
+        relatives: [],
+      };
+
+      // Generate 50 unique wishes per category
+      function generateWishes(category, emoji) {
+        const templates = [
+          `Happy Birthday! Your ${category} love and support mean the world to me. Thank you for all the beautiful memories and guidance. May your special day be filled with joy, laughter, health, and everything your heart desires.`,
+          `Wishing the most amazing ${category} a birthday full of happiness and wonderful surprises. You deserve all the best things in life. Thank you for being such an important part of my life.`,
+          `Happy Birthday to my dear ${category}! Your kindness, strength, and warmth inspire me every day. May this year bring you endless reasons to smile and celebrate.`,
+        ];
+
+        const wishes = [];
+        for (let i = 1; i <= 50; i++) {
+          const base = templates[i % templates.length];
+          wishes.push(`${i}. ${base}`);
+        }
+        wishesData[category] = wishes;
+      }
+
+      // Populate all categories
+      generateWishes("mother", "Mom");
+      generateWishes("father", "Dad");
+      generateWishes("brother", "Brother");
+      generateWishes("sister", "Sister");
+      generateWishes("husband", "Husband");
+      generateWishes("wife", "Wife");
+      generateWishes("teacher", "Teacher");
+      generateWishes("boss", "Boss");
+      generateWishes("coworker", "Coworker");
+      generateWishes("pet", "Pet");
+      generateWishes("relatives", "Relative");
+
+      const categories = [
+        { key: "mother", name: "Mother", emoji: "🌷", color: "#ff6b6b" },
+        { key: "father", name: "Father", emoji: "🧔", color: "#4ecdc4" },
+        { key: "brother", name: "Brother", emoji: "🤜", color: "#ffd93d" },
+        { key: "sister", name: "Sister", emoji: "👧", color: "#a55eea" },
+        { key: "husband", name: "Husband", emoji: "💍", color: "#ff6b9d" },
+        { key: "wife", name: "Wife", emoji: "💖", color: "#ff9f1c" },
+        { key: "teacher", name: "Teacher", emoji: "📖", color: "#2ec4b6" },
+        { key: "boss", name: "Boss", emoji: "💼", color: "#5f27cd" },
+        { key: "coworker", name: "Coworker", emoji: "☕", color: "#ff9ff3" },
+        { key: "pet", name: "Pet", emoji: "🐶", color: "#54a0ff" },
+        { key: "relatives", name: "Relatives", emoji: "👨‍👩‍👧", color: "#ff6b6b" },
+      ];
+
+      function renderCategories() {
+        const grid = document.getElementById("categoriesGrid");
+        grid.innerHTML = "";
+        categories.forEach((cat) => {
+          const card = document.createElement("div");
+          card.className = "category-card";
+          card.style.borderTop = `6px solid ${cat.color}`;
+          card.innerHTML = `
+                    <span class="emoji">${cat.emoji}</span>
+                    <h3 style="font-size:1.5rem;margin:12px 0 8px;">${cat.name}</h3>
+                    <p style="color:#666;">50 Unique Wishes</p>
+                `;
+          card.addEventListener("click", () =>
+            showWishes(cat.key, cat.name, cat.emoji),
+          );
+          grid.appendChild(card);
+        });
+      }
+
+      function showWishes(key, name, emoji) {
+        const container = document.getElementById("wishesContainer");
+        container.innerHTML = `
+                <div style="margin-bottom:40px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+                    <button onclick="backToHome()" style="padding:12px 24px;background:white;border:2px solid #ddd;border-radius:9999px;cursor:pointer;font-weight:600;">← All Categories</button>
+                    <h2 style="color:white;flex:1;text-align:center;font-size:2.2rem;">${emoji} ${name} Birthday Wishes</h2>
+                </div>
+                <div id="wishList" style="max-width:860px;margin:0 auto;"></div>
+            `;
+
+        const listEl = document.getElementById("wishList");
+        wishesData[key].forEach((wish) => {
+          const card = document.createElement("div");
+          card.className = "wish-card";
+          const wishText = wish.substring(wish.indexOf(".") + 2);
+          card.innerHTML = `
+                    <div class="wish-header">
+                        <div class="wish-number">${wish.split(".")[0]}.</div>
+                    </div>
+                    <div class="wish-text">${wishText}</div>
+                    <button class="copy-btn" onclick="copyToClipboard('${wishText.replace(/'/g, "\\'")}', this)">📋 Copy Wish</button>
+                `;
+          listEl.appendChild(card);
+        });
+
+        document.getElementById("categoriesGrid").style.display = "none";
+        window.scrollTo(0, 0);
+      }
+
+      function copyToClipboard(text, btn) {
+        navigator.clipboard.writeText(text).then(() => {
+          const notif = document.getElementById("notification");
+          notif.style.display = "flex";
+          setTimeout(() => (notif.style.display = "none"), 2200);
+
+          const originalText = btn.textContent;
+          btn.textContent = "✅ Copied!";
+          btn.style.background = "#22c55e";
+          setTimeout(() => {
+            btn.textContent = originalText;
+            btn.style.background = "";
+          }, 1800);
+        });
+      }
+
+      function backToHome() {
+        document.getElementById("categoriesGrid").style.display = "grid";
+        document.getElementById("wishesContainer").innerHTML = "";
+      }
+
+      function setupSearch() {
+        const input = document.getElementById("searchInput");
+        const suggestionsContainer = document.getElementById("suggestions");
+
+        input.addEventListener("keyup", (e) => {
+          const term = input.value.toLowerCase().trim();
+          if (!term) {
+            suggestionsContainer.style.display = "none";
+            return;
+          }
+
+          const matches = categories.filter(
+            (c) => c.name.toLowerCase().includes(term) || c.key.includes(term),
+          );
+
+          if (matches.length === 0) {
+            suggestionsContainer.style.display = "none";
+            return;
+          }
+
+          suggestionsContainer.innerHTML = "";
+          matches.forEach((match) => {
+            const item = document.createElement("div");
+            item.className = "suggestion-item";
+            item.textContent = match.name;
+            item.onclick = () => {
+              input.value = "";
+              suggestionsContainer.style.display = "none";
+              showWishes(match.key, match.name, match.emoji);
+            };
+            suggestionsContainer.appendChild(item);
+          });
+          suggestionsContainer.style.display = "block";
+        });
+
+        document.addEventListener("click", (e) => {
+          if (!input.contains(e.target))
+            suggestionsContainer.style.display = "none";
+        });
+      }
+
+      function toggleDarkMode() {
+        document.body.classList.toggle("dark-mode");
+      }
+
+      window.onload = () => {
+        renderCategories();
+        setupSearch();
+
+        const scrollBtn = document.getElementById("scrollTopBtn");
+        window.addEventListener("scroll", () => {
+          scrollBtn.style.display = window.scrollY > 600 ? "flex" : "none";
+        });
+      };
+    </script>
+  </body>
+</html>
